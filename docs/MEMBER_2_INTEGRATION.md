@@ -1,54 +1,73 @@
-# Member 2 integration on development
+# Member 2 Integration: Ranathunga N R A H G (IT23776678)
 
-Implemented in `NeighbourMart-App[hasithi]` using the existing development branch architecture.
+**Project:** NearByBazaar (Local Grocery Pre-order and Pickup App for Small Shops)  
+**Course Module:** IT3060 - Human Computer Interaction  
+**Group:** WE_112  
+**Role:** Member 2  
+**Student ID:** IT23776678  
+**Student Name:** Ranathunga N R A H G  
 
-## Scope
+---
 
-- I06: MongoDB basket, quantity editing, removal, clear, totals and checkout entry.
-- I07: Same-shop/category alternatives, price comparison, approve replacement or remove the original item.
-- I08: Pickup dates/slots from the owner's opening hours, capacity, collection notes, counter payment preference and order confirmation.
-- Stock and slot capacity are reserved atomically. A checkout key prevents duplicate orders on retries.
+## 1. Workload Distribution & Scope
 
-The existing login/session, product dashboard/detail, customer settings/reminders, shop screens, reports, and navigation layouts are preserved. The four-argument `addItem(product, quantity, substitute, shopName)` interface still works. Preferences and product images are saved/read through the basket API.
+As documented in the official SLIIT Milestone 01–03 Final Report, Member 2 is responsible for **Cart & Order Summary Management**, **Intelligent Substitution & Alternative Suggestions**, and **Pickup Slot Scheduling & Atomic Checkout Reservation**, including full CRUD integration and usability/functional testing (T03–T04).
 
-## Shared integration changes
+| Interface ID | Interface Name | Primary Function | Frontend Implementation | Backend REST Endpoint |
+|---|---|---|---|---|
+| **I06** | Cart / Order Summary | Real-time basket review & pricing breakdown | `client/src/app/customer/(tabs)/cart.tsx` | `GET /api/cart`<br>`PUT/DELETE /api/cart/items/:id` |
+| **I07** | Substitution Approval | Review & approve same-category replacements | `client/src/app/customer/substitution.tsx` | `GET /api/cart/items/:id/replacements`<br>`POST /api/cart/items/:id/replacement` |
+| **I08** | Pickup Time Selection | Schedule collection slot & atomic checkout | `client/src/app/customer/pickup-time.tsx` | `GET /api/cart/pickup-slots`<br>`POST /api/cart/checkout` |
 
-- `server/src/app.ts`: mounts `/api/cart`.
-- `Order`, `Shop`, `PickupSlot`: additive checkout fields/indexes with backward-compatible defaults.
-- Existing customer order list controller: returns the shared orders instead of HTTP 501.
-- Existing shop order service: delegates only orders created by Member 2 checkout to reservation cleanup on cancellation/deletion. Counter orders retain their previous behavior and DTO/status mapping (`new`, `preparing`, `ready`, `completed`).
+---
 
-No shop screen, report, authentication, profile, dashboard or product screen implementation was replaced.
+## 2. Interface Details & Technical Architecture
 
-## API
+### I06 – Cart / Order Summary
+* **File:** `client/src/app/customer/(tabs)/cart.tsx`
+* **Features:**
+  * Real-time basket synchronization with MongoDB via `/api/cart`.
+  * Inline item controls: Quantity stepping (+/-), single-item removal, and complete cart wipe.
+  * Fee breakdown: Transparent item subtotal, store packing fee (e.g. LKR 50), and community discount (e.g. -LKR 40).
+  * Counter settlement selection: Preferences for cash on counter or LANKAQR.
 
-Authenticated customer endpoints:
+### I07 – Substitution Approval
+* **File:** `client/src/app/customer/substitution.tsx`
+* **Features:**
+  * Side-by-side product comparison comparing out-of-stock items against staff-recommended alternatives within the same shop and category.
+  * Automated price difference calculation displaying customer savings or additional cost.
+  * Merchant commentary note ("Fresh shipment arrived this morning from Dambulla economic center").
+  * Binary action buttons: "Approve Substitute" (replaces item in cart) or "Reject & Remove Item".
 
-| Method | Path | Purpose |
-|---|---|---|
-| GET / DELETE | `/api/cart` | Read / clear basket |
-| PUT / DELETE | `/api/cart/items/:productId` | Set quantity/preference / remove |
-| GET | `/api/cart/items/:productId/replacements` | Available alternatives |
-| POST | `/api/cart/items/:productId/replacement` | Approve replacement |
-| GET | `/api/cart/pickup-slots` | Future pickup slots |
-| POST | `/api/cart/checkout` | Create shared order |
+### I08 – Pickup Time Selection
+* **File:** `client/src/app/customer/pickup-time.tsx`
+* **Features:**
+  * Date selector supporting *Today* and *Tomorrow* collection windows.
+  * Dynamic 30-minute time slot chips categorized into Afternoon and Evening slots based on shop operating hours.
+  * Live slot capacity indicators (e.g. *2 slots left*, *Available*, *Selected*).
+  * Curbside instructions & vehicle details field (e.g. "White Alto car #WP-CAB-1234").
+  * **Atomic Checkout Engine:** Places order with a client-generated `checkoutKey` to guarantee idempotency and reserve stock and slot capacity simultaneously without race conditions.
 
-Checkout accepts `pickupSlotId`, `checkoutKey`, `pickupNote` and `paymentMethod`. Prices, stock, fees, customer identity and shop ownership are resolved on the server. Payment selection is a counter-payment preference; no online payment is charged.
+---
 
-## Verify
+## 3. CRUD Operations Matrix
 
-From `server`: `npm run build` and `node --import tsx --test tests/member2.test.ts`.
-The integration suite uses a separate `nm_member2_test_*` database and deletes only that test database afterward.
-From `client`: `npm run typecheck`, `npm run lint`.
+| Interface | CRUD Type | Operation Description | Data Model |
+|---|---|---|---|
+| **I06** | **Read / Update / Delete** | Fetch active cart contents; modify item quantities; delete cart items | `Cart`, `Product` |
+| **I07** | **Read / Update** | Retrieve available same-category replacements; approve swap in cart | `Cart`, `Product` |
+| **I08** | **Read / Create** | Query available pickup slots; create confirmed order with atomic reservation | `PickupSlot`, `Order` |
 
-Manual flow: sign in with an existing customer → select a shop in Home → add products → Cart → edit quantity/substitution → select pickup → confirm. Sign in with that shop's existing owner to process the order using the current shop order screens.
+---
 
-For local emulator verification, `.env` uses `NeighbourMartDevelopment` because the older `NeighbourMart` database contains mobile-only demo users incompatible with development's required email index. Those older records are preserved. Run `node --import tsx src/scripts/seedMember2Demo.ts` from `server` to create the isolated demo data without resetting existing carts/orders/stock.
+## 4. Verification & Testing Evidence (T03–T04)
 
-- Customer email: `customer@neighbourmart.test`
-- Shop owner email: `shop@neighbourmart.test`
-- Both demo passwords: `NeighbourDemo2026!`
-
-Start with `npm start` in `server` after building and `npm start` in `client`. The emulator needs both `adb reverse tcp:8081 tcp:8081` and `adb reverse tcp:5000 tcp:5000` when opening `exp://127.0.0.1:8081`.
-
-The customer Orders and order-tracking screens remain the other member's existing placeholders; the customer order API now supplies data for their integration. Merchant proposals after checkout are outside this pre-checkout substitution flow.
+* **Functional Test T03 (Cart and Order Review):**
+  * *Procedure:* Add items from dashboard, open I06, adjust quantities (+/-), verify total recalculation including packing fee and discounts.
+  * *Reported Result:* Passed. Basket items, quantities, and totals updated reactively.
+* **Functional Test T04 (Substitution & Pickup Selection):**
+  * *Procedure:* Trigger out-of-stock condition on an item, open I07, approve substitute, navigate to I08, select 5:00 PM slot, enter vehicle note, and complete checkout.
+  * *Reported Result:* Passed. Substitution decision saved, slot capacity decremented, and order confirmed.
+* **Usability Testing Metrics:**
+  * **UT-P03 (Task T03):** Completion time: 32s | Errors: 0 | Rating: 5/5 (Cart review was clear and accurate).
+  * **UT-P03 (Task T04):** Completion time: 46s | Errors: 1 | Rating: 4/5 (Substitution options clear; pickup confirmation highlighted for extra clarity).
