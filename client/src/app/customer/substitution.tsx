@@ -22,9 +22,9 @@ import {
 import {
   approveReplacement,
   getReplacements,
-} from "@/features/customer/cartApi";
-import type { Product } from "@/features/customer/customerTypes";
-import { useCart } from "@/features/customer/useCart";
+} from "@/features/cart/cartApi";
+import type { Product } from "@/features/cart/cartTypes";
+import { useCart } from "@/features/cart/useCart";
 
 export default function SubstitutionApproval() {
   const { productId } = useLocalSearchParams<{ productId: string }>();

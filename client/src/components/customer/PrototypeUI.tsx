@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CustomerFooter } from "./CustomerFooter";
-import { RoleHeader } from "../common/RoleHeader";
-import type { Product } from "@/features/customer/customerTypes";
+import { RoleHeader } from "../layout/RoleHeader";
+import type { Product } from "@/features/cart/cartTypes";
 
 export const colors = {
   green: "#007332",

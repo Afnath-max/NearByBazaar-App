@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { router } from 'expo-router';
 import { ActivityIndicator, Alert, FlatList, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { EmptyState } from '@/components/common/EmptyState';
-import { RoleHeader } from '@/components/common/RoleHeader';
+import { EmptyState } from '@/components/feedback/EmptyState';
+import { RoleHeader } from '@/components/layout/RoleHeader';
 import { ShopOrderCard } from '@/components/shop/ShopOrderCard';
 import { ActionButton, Thumb } from '@/components/shop/ShopUI';
 import { T, emojiFor, money } from '@/components/shop/shopTheme';
-import { createShopOrder, getStockItems } from '@/features/shop/shopApi';
-import type { OrderStatus, StockItem } from '@/features/shop/shopTypes';
-import { useShopOrders } from '@/features/shop/useShopOrders';
+import { createShopOrder, getStockItems } from '@/features/shops/shopApi';
+import type { OrderStatus, StockItem } from '@/features/shops/shopTypes';
+import { useShopOrders } from '@/features/shops/useShopOrders';
 
 const TABS: { key: OrderStatus; label: string }[] = [
   { key: 'new', label: 'New' }, { key: 'preparing', label: 'Preparing' }, { key: 'ready', label: 'Ready' },

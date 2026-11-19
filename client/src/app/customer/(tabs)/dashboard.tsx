@@ -2,12 +2,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useMemo, useState } from 'react';
 import { Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View, ImageBackground, TextInput, ActivityIndicator, Image, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RoleHeader } from '@/components/common/RoleHeader';
+import { RoleHeader } from '@/components/layout/RoleHeader';
 import { PickupReminderCard } from '@/components/customer/PickupReminderCard';
-import { getShops, getProducts } from '@/features/customer/customerApi';
+import { getShops } from '@/features/shops/shopApi';
+import { getProducts } from '@/features/products/productApi';
 import { useRouter } from 'expo-router';
-import type { Shop, Product } from '@/features/customer/customerTypes';
-import { useCart } from '@/features/customer/useCart';
+import type { Shop } from '@/features/shops/shopTypes';
+import type { Product } from '@/features/cart/cartTypes';
+import { useCart } from '@/features/cart/useCart';
 import { useAuth } from '@/features/auth/useAuth';
 import { updateProfile } from '@/features/auth/authApi';
 

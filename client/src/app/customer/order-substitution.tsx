@@ -3,9 +3,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RoleHeader } from '@/components/common/RoleHeader';
-import { getCustomerOrder, respondToOrderSubstitution } from '@/features/customer/customerApi';
-import type { CustomerOrder, CustomerOrderItem } from '@/features/customer/customerTypes';
+import { RoleHeader } from '@/components/layout/RoleHeader';
+import { getCustomerOrder, respondToOrderSubstitution } from '@/features/orders/orderApi';
+import type { CustomerOrder, CustomerOrderItem } from '@/features/orders/orderTypes';
 
 const money = (value: number) => `LKR ${value.toLocaleString('en-LK')}`;
 export default function OrderSubstitution() {

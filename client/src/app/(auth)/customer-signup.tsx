@@ -6,9 +6,9 @@ import { AuthDivider } from '@/components/auth/AuthDivider';
 import { CommunityBanner } from '@/components/auth/CommunityBanner';
 import { AuthScreen } from '@/components/auth/AuthScreen';
 import { SocialButtons } from '@/components/auth/SocialButtons';
-import { Button } from '@/components/common/Button';
-import { ErrorMessage } from '@/components/common/ErrorMessage';
-import { Input } from '@/components/common/Input';
+import { Button } from '@/components/ui/Button';
+import { ErrorMessage } from '@/components/feedback/ErrorMessage';
+import { Input } from '@/components/ui/Input';
 import { registerCustomer } from '@/features/auth/authApi';
 
 export default function CustomerSignup() {

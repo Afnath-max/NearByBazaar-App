@@ -1,13 +1,13 @@
 import { router } from 'expo-router';
 import { ActivityIndicator, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Button } from '@/components/common/Button';
-import { RoleHeader } from '@/components/common/RoleHeader';
+import { Button } from '@/components/ui/Button';
+import { RoleHeader } from '@/components/layout/RoleHeader';
 import { DashboardCard } from '@/components/shop/DashboardCard';
 import { ActionButton, Pill, SectionTitle, Thumb } from '@/components/shop/ShopUI';
 import { T, emojiFor, money, shadow, timeAgo } from '@/components/shop/shopTheme';
-import { stockState } from '@/features/shop/shopTypes';
-import { useDashboard } from '@/features/shop/useDashboard';
+import { stockState } from '@/features/shops/shopTypes';
+import { useDashboard } from '@/features/shops/useDashboard';
 
 export default function ShopDashboard() {
   const d = useDashboard();

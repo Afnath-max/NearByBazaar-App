@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { Alert, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground } from 'react-native';
 import { useAuth } from '@/features/auth/useAuth';
-import { deletePickupReminder, getPickupReminder, savePickupReminder, type ReminderItem } from '@/features/customer/reminderApi';
+import { deletePickupReminder, getPickupReminder, savePickupReminder, type ReminderItem } from '@/features/orders/reminderApi';
 
 type DraftItem = ReminderItem;
 

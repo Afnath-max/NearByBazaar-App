@@ -25,9 +25,9 @@ import {
   getPickupSlots,
   placeOrder,
   type PickupSlot,
-} from "@/features/customer/cartApi";
-import type { CustomerOrder } from "@/features/customer/customerTypes";
-import { useCart } from "@/features/customer/useCart";
+} from "@/features/cart/cartApi";
+import type { CustomerOrder } from "@/features/orders/orderTypes";
+import { useCart } from "@/features/cart/useCart";
 
 function time(value: string) {
   const [hour, minute] = value.split(":").map(Number);

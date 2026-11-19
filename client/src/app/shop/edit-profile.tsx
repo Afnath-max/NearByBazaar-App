@@ -2,11 +2,11 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Button } from '@/components/common/Button';
-import { ErrorMessage } from '@/components/common/ErrorMessage';
-import { Input } from '@/components/common/Input';
+import { Button } from '@/components/ui/Button';
+import { ErrorMessage } from '@/components/feedback/ErrorMessage';
+import { Input } from '@/components/ui/Input';
 import { useAuth } from '@/features/auth/useAuth';
-import { getMyShop, updateMyShop } from '@/features/shop/shopApi';
+import { getMyShop, updateMyShop } from '@/features/shops/shopApi';
 import { ShopBottomNav } from '@/components/shop/ShopBottomNav';
 
 export default function ShopEditProfile() {

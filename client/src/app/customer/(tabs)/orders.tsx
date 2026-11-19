@@ -3,9 +3,9 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RoleHeader } from '@/components/common/RoleHeader';
-import { getCustomerOrders } from '@/features/customer/customerApi';
-import type { CustomerOrder } from '@/features/customer/customerTypes';
+import { RoleHeader } from '@/components/layout/RoleHeader';
+import { getCustomerOrders } from '@/features/orders/orderApi';
+import type { CustomerOrder } from '@/features/orders/orderTypes';
 
 const activeStatuses = new Set(['pending', 'accepted', 'preparing', 'ready']);
 const statusCopy: Record<string, { label: string; color: string; bg: string }> = {

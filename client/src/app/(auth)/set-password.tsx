@@ -3,9 +3,9 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { AuthScreen } from '@/components/auth/AuthScreen';
-import { Button } from '@/components/common/Button';
-import { ErrorMessage } from '@/components/common/ErrorMessage';
-import { Input } from '@/components/common/Input';
+import { Button } from '@/components/ui/Button';
+import { ErrorMessage } from '@/components/feedback/ErrorMessage';
+import { Input } from '@/components/ui/Input';
 import { setPassword } from '@/features/auth/authApi';
 import { useAuth } from '@/features/auth/useAuth';
 

@@ -4,9 +4,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RoleHeader } from '@/components/common/RoleHeader';
-import { cancelCustomerOrder, getCustomerOrder } from '@/features/customer/customerApi';
-import type { CustomerOrder } from '@/features/customer/customerTypes';
+import { RoleHeader } from '@/components/layout/RoleHeader';
+import { cancelCustomerOrder, getCustomerOrder } from '@/features/orders/orderApi';
+import type { CustomerOrder } from '@/features/orders/orderTypes';
 
 const closed = new Set(['picked-up', 'cancelled']);
 const labels: Record<string, string> = { pending: 'Order Received', accepted: 'Accepted by Shop', preparing: 'Items Being Packed', ready: 'Ready at Pickup Counter', 'picked-up': 'Picked Up', cancelled: 'Cancelled' };

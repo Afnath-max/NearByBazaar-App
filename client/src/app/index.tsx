@@ -1,5 +1,5 @@
 import { Redirect } from 'expo-router';
-import { LoadingIndicator } from '@/components/common/LoadingIndicator';
+import { LoadingIndicator } from '@/components/feedback/LoadingIndicator';
 import { useAuth } from '@/features/auth/useAuth';
 
 export default function EntryRoute() {

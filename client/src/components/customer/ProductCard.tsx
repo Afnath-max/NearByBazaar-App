@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import type { Product } from '@/features/customer/customerTypes';
+import type { Product } from '@/features/cart/cartTypes';
 
 export function ProductCard({ product }: { product: Product }) {
   return (

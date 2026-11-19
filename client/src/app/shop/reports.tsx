@@ -5,7 +5,7 @@ import { ActivityIndicator, Alert, ScrollView, Share, StyleSheet, Text, Touchabl
 import { ReportCard } from '@/components/shop/ReportCard';
 import { ActionButton, Pill, SectionTitle, Thumb } from '@/components/shop/ShopUI';
 import { T, emojiFor, money, shadow } from '@/components/shop/shopTheme';
-import { createExport, deleteExport, getExports, getReport, type Period, type ReportExport, type ShopReport } from '@/features/shop/reportApi';
+import { createExport, deleteExport, getExports, getReport, type Period, type ReportExport, type ShopReport } from '@/features/reports/reportApi';
 
 const PERIODS: { key: Period; label: string }[] = [{ key: 'today', label: 'Today' }, { key: 'week', label: 'This Week' }, { key: 'month', label: 'This Month' }];
 

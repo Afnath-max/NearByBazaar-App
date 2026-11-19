@@ -3,10 +3,10 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Modal, ScrollView, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RoleHeader } from '@/components/common/RoleHeader';
+import { RoleHeader } from '@/components/layout/RoleHeader';
 import { useAuth } from '@/features/auth/useAuth';
-import { getMyShop, updateMyShop } from '@/features/shop/shopApi';
-import type { ShopProfile } from '@/features/shop/shopTypes';
+import { getMyShop, updateMyShop } from '@/features/shops/shopApi';
+import type { ShopProfile } from '@/features/shops/shopTypes';
 
 function Row({ icon, label, value }: { icon: keyof typeof Ionicons.glyphMap; label: string; value: string }) {
   return <View style={styles.row}><View style={styles.rowIcon}><Ionicons color="#138A43" name={icon} size={17} /></View><View style={styles.rowCopy}><Text style={styles.rowLabel}>{label}</Text><Text style={styles.rowValue}>{value || 'Not provided'}</Text></View></View>;

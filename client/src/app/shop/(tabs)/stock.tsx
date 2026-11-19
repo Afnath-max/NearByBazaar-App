@@ -3,13 +3,13 @@ import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { ActivityIndicator, Alert, FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { EmptyState } from '@/components/common/EmptyState';
-import { RoleHeader } from '@/components/common/RoleHeader';
+import { EmptyState } from '@/components/feedback/EmptyState';
+import { RoleHeader } from '@/components/layout/RoleHeader';
 import { StockItemCard } from '@/components/shop/StockItemCard';
 import { ActionButton } from '@/components/shop/ShopUI';
 import { T, shadow } from '@/components/shop/shopTheme';
-import { stockState } from '@/features/shop/shopTypes';
-import { useStock } from '@/features/shop/useStock';
+import { stockState } from '@/features/shops/shopTypes';
+import { useStock } from '@/features/products/useStock';
 
 type Filter = 'all' | 'low' | 'out';
 const DOT: Record<Filter, string> = { all: T.green2, low: '#F59E0B', out: T.red };

@@ -4,9 +4,9 @@ import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RoleHeader } from '@/components/common/RoleHeader';
-import { completeOrderHandoff, confirmOrderPayment, getShopOrder, getStockItems, proposeOrderSubstitution, updateOrderStatus, verifyOrderPickup } from '@/features/shop/shopApi';
-import type { ShopOrderDetails, StockItem } from '@/features/shop/shopTypes';
+import { RoleHeader } from '@/components/layout/RoleHeader';
+import { completeOrderHandoff, confirmOrderPayment, getShopOrder, getStockItems, proposeOrderSubstitution, updateOrderStatus, verifyOrderPickup } from '@/features/shops/shopApi';
+import type { ShopOrderDetails, StockItem } from '@/features/shops/shopTypes';
 
 const money = (value: number) => `LKR ${value.toLocaleString('en-LK')}`;
 export default function ShopOrderDetailsScreen() {

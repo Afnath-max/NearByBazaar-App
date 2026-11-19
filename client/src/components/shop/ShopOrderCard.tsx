@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import type { OrderStatus, ShopOrder } from '@/features/shop/shopTypes';
+import type { OrderStatus, ShopOrder } from '@/features/shops/shopTypes';
 import { ActionButton, Pill, type IconName } from './ShopUI';
 import { T, emojiFor, money, shadow, timeAgo } from './shopTheme';
 

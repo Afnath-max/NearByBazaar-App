@@ -3,9 +3,9 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AuthScreen } from '@/components/auth/AuthScreen';
-import { Button } from '@/components/common/Button';
-import { ErrorMessage } from '@/components/common/ErrorMessage';
-import { Input } from '@/components/common/Input';
+import { Button } from '@/components/ui/Button';
+import { ErrorMessage } from '@/components/feedback/ErrorMessage';
+import { Input } from '@/components/ui/Input';
 import { registerShopOwner } from '@/features/auth/authApi';
 
 const CATEGORIES = ['Grocery & Mart', 'Fresh Fruits & Vegetables', 'Bakery', 'Meat & Seafood', 'Dairy & Beverages', 'Other'];

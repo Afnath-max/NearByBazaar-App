@@ -5,7 +5,7 @@ import { Alert, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, Te
 import * as ImagePicker from 'expo-image-picker';
 import { ActionButton, Thumb } from '@/components/shop/ShopUI';
 import { T, emojiFor, money, shadow } from '@/components/shop/shopTheme';
-import { createStockItem, updateStockItem } from '@/features/shop/shopApi';
+import { createStockItem, updateStockItem } from '@/features/shops/shopApi';
 
 const CATEGORIES = ['Dairy', 'Fresh Produce', 'Pulses', 'Grains', 'Biscuits', 'Snacks', 'Beverages'];
 

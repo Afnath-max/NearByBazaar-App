@@ -1,4 +1,4 @@
-import { EmptyState } from '@/components/common/EmptyState';
+import { EmptyState } from '@/components/feedback/EmptyState';
 
 export default function ProductDetails() {
   return (

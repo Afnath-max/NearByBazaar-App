@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import { Alert } from 'react-native';
-import type { CartItem, Product, SubstitutePreference } from '@/features/customer/customerTypes';
-import { deleteBasket, getBasket, removeItem as deleteItem, updateItem, type Basket } from '@/features/customer/cartApi';
+import type { CartItem, Product, SubstitutePreference } from '@/features/cart/cartTypes';
+import { deleteBasket, getBasket, removeItem as deleteItem, updateItem, type Basket } from '@/features/cart/cartApi';
 import { AuthContext } from './AuthContext';
 
 type CartContextValue = {

@@ -20,7 +20,7 @@ import {
   productPhoto,
   PrototypePage,
 } from "@/components/customer/PrototypeUI";
-import { useCart } from "@/features/customer/useCart";
+import { useCart } from "@/features/cart/useCart";
 
 export default function Cart() {
   const {

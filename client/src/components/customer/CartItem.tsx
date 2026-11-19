@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import type { CartItem as CartItemType } from '@/features/customer/customerTypes';
+import type { CartItem as CartItemType } from '@/features/cart/cartTypes';
 
 export function CartItem({ item }: { item: CartItemType }) {
   return (

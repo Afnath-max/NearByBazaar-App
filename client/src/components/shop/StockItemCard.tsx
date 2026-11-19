@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
-import { stockState, type StockItem } from '@/features/shop/shopTypes';
+import { stockState, type StockItem } from '@/features/shops/shopTypes';
 import { Pill, Thumb } from './ShopUI';
 import { T, emojiFor, money, shadow } from './shopTheme';
 
