@@ -116,7 +116,7 @@ NearByBazaar-App/
 ├── docs/                                 # Architectural specifications & member reports
 │   ├── ARCHITECTURE.md                   # System design & pattern documentation
 │   ├── MEMBER_2_INTEGRATION.md           # Member 2 integration documentation
-│   └── MEMBER_3_AFNATH_INTEGRATION.md   # Member 3 (Afnath Ahamed) integration documentation
+│   └── MEMBER_3_INTEGRATION.md   # Member 3 (Afnath Ahamed) integration documentation
 ├── render.yaml                           # Cloud deployment blueprint
 └── README.md                             # Repository showcase documentation
 ```
